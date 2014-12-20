@@ -7,13 +7,13 @@
  - validateNumber - check if value from input is number
  */
 
-
 (function($)
 {
 	
 	var blankFieldValidatedCorrectly=false;
 	var emailValidatetCorrectly=false;
 	var numberValidatedCorrectly=false;
+	var properDescriptionLength=false;
 	
     $.fn.validateEmptyField = function(options) 
     {
@@ -37,8 +37,32 @@
     		 var object = $( '#'+options.validationId);
     		 object.text(object.text().replace('Field shoud not be empty',''));
     		 blankFieldValidatedCorrectly=true;
-    		 //zastepujemy alert czerwony komunikatem na zielono ze zwalidowano pomyslnie
     	 }
+    	 return blankFieldValidatedCorrectly;
+    };
+    
+    $.fn.validateStringLength = function(options) 
+    {
+    	 if(this.val().length<=40)
+    	 {
+    		var object = $( '#'+options.validationId);
+    		var currentObjectText = object.text();
+    		if(currentObjectText.indexOf("Length of value o this string should be bigger than 40 characters")!=-1)
+    		{
+    		object.text(currentObjectText);
+    		}
+    		else
+    		{
+ 	   		object.text(currentObjectText + "  "  +  'Length of value o this string should be bigger than 40 characters');
+    		}
+    	 }
+    	 else
+    	 {
+    		 var object = $( '#'+options.validationId);
+    		 object.text(object.text().replace('Length of value o this string should be bigger than 40 characters',''));
+    		 properDescriptionLength=true; 
+    	 }
+    	 return properDescriptionLength;
     };
     
     $.fn.validateEmail = function(options) 
@@ -70,7 +94,7 @@
 	   		object.text(object.text().replace('Not proper value in e-mail field !',''));
 	   		emailValidatetCorrectly=true;
 	     }
-
+	   	 return emailValidatetCorrectly;
     };
     
     $.fn.validateNumeric = function(options) 
@@ -97,8 +121,9 @@
 	   		object.text(object.text().replace('Not numeric value !',''));
 	   		numberValidatedCorrectly=true;
 	     }
-
+	   	 return numberValidatedCorrectly;
     };
+   
 //object.css({ 'color': 'green'})
 }(jQuery));
 

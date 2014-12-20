@@ -4,36 +4,42 @@
 <meta charset="UTF-8">
 <title>jQuery Plugin Example</title>
 <script type="text/javascript"></script>
-<script type="text/javascript" src="D:\workspace\jQueryPlugin\WebContent\js\jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="D:\workspace\jQueryPlugin\WebContent\js\validationScripts.js"></script>
-<script type="text/javascript" src="D:\workspace\jQueryPlugin\WebContent\js\formValidationPlugin.js"></script>
-
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-
-
+<script type="text/javascript" src="C:\Users\Marcin\git\jQueryPlugin\jQueryPlugin\WebContent\js\jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="C:\Users\Marcin\git\jQueryPlugin\jQueryPlugin/WebContent\js\validationScripts.js"></script>
+<script type="text/javascript" src="C:\Users\Marcin\git\jQueryPlugin\jQueryPlugin\WebContent\js\formValidationPlugin.js"></script>
 
 </head>
 <body>
 
 <h2>Music Album Form - jQuery plugin Test</h2>
 <br>
-<div id="validationNotification" style="color:red">
-<p id="text"></p>
+<div id="nameErrorDIV" style="color:red">
+<p id="nameError"></p>
 </div>
 Name of Album
 <input type="text" id='name'>
 <br>
-<br>
+<div id="emailErrorDIV" style="color:red">
+<p id="emailError"></p>
+</div>
 Email of Artist
 <input type="text" id='email'>
 <br>
-<br>
+<div id="numberErrorDIV" style="color:red">
+<p id="numberError"></p>
+</div>
 Album price
 <input type="text" id='number'>
 <br>
+<div id="albumDescriptionErrorDIV" style="color:red">
+<p id="albumDescriptionError"></p>
+</div>
+Album description
+<textarea rows="6" cols="80" id='description'>
+
+</textarea>
 <br>
-
-
+<br>
 <input type="button" value="Submit Form" onclick="validateForm();">
 
 </body>

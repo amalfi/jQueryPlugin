@@ -1,14 +1,23 @@
 function validateForm()
 {
-	//w nazwie przekazemy id elementu ktorego wartosc ustawimy na alert veryfikacji
-	   $('#name').validateEmptyField({
-		validationId : 'text' 
+
+		var blankFieldValidatedCorrectly =  $('#name').validateEmptyField({
+		validationId : 'nameError' 
 	    });	
-	    $('#email').validateEmail({
-    	validationId : 'text'   
+	    var emailValidatetCorrectly = $('#email').validateEmail({
+    	validationId : 'emailError'   
 	    });
-	    $('#number').validateNumeric(
+	    var numberValidatedCorrectly = $('#number').validateNumeric(
 	    {
-	    validationId : 'text' 
+	    validationId : 'numberError' 
 	    });
+	    var properDescriptionLength = $('#description').validateStringLength(
+	    {
+	    validationId : 'albumDescriptionError' 
+	    });
+	    
+	    if(blankFieldValidatedCorrectly && emailValidatetCorrectly && numberValidatedCorrectly & properDescriptionLength)
+	    {
+	    	alert("Congratulations ! Validation passed !");
+	    }
 }
